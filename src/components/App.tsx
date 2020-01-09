@@ -5,7 +5,12 @@ const App = () => {
 	return (
 		<div>
 			<div>App</div>
-			<TextField />
+			<TextField
+				text="typescript is cool"
+				bool={true}
+				obj={{ field: "some text value" }}
+				personObj={{ firstName: "typey", lastName: "McTypeyFace" }}
+			/>
 		</div>
 	);
 };
