@@ -6,24 +6,37 @@ interface Person {
 }
 
 interface Props {
-	text: string;
+	title: string;
 	bool?: boolean;
 	func?: (arg: string) => string;
 	obj?: {
 		field: string;
 	};
 	personObj?: Person;
+	handleChange?: () => void;
 }
 
 // React.FC = react functional component
-const TextField: React.FC<Props> = ({ text }) => {
+const TextField: React.FC<Props> = ({ title, handleChange }) => {
 	const [count, setCount] = useState<number>(5);
+	const [text, changeText] = useState<string>("");
 
 	return (
 		<div>
-			<div>{text}</div>
-			<button onClick={() => setCount(count + 1)}>Click me</button>
+			<div>{title}</div>
+			<button onClick={() => setCount(count + 1)}>Add</button>
+			<button onClick={() => setCount(count - 1)}>Subtract</button>
+			<div>
+				<input
+					type="text"
+					name="myInput"
+					onChange={e => {
+						changeText(e.target.value);
+					}}
+				/>
+			</div>
 			<p>{count}</p>
+			<p>{text}</p>
 		</div>
 	);
 };

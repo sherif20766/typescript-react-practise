@@ -5,7 +5,7 @@ const App = () => {
 	return (
 		<div>
 			<TextField
-				text="Counter"
+				title="Counter"
 				bool={true}
 				obj={{ field: "some text value" }}
 				personObj={{ firstName: "typey", lastName: "McTypeyFace" }}
