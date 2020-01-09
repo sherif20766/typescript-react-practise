@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface Person {
 	firstName: string;
@@ -17,7 +17,15 @@ interface Props {
 
 // React.FC = react functional component
 const TextField: React.FC<Props> = ({ text }) => {
-	return <div>{text}</div>;
+	const [count, setCount] = useState<number>(5);
+
+	return (
+		<div>
+			<div>{text}</div>
+			<button onClick={() => setCount(count + 1)}>Click me</button>
+			<p>{count}</p>
+		</div>
+	);
 };
 
 export default TextField;
